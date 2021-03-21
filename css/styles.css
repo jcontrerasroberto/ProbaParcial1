@@ -33,3 +33,14 @@
 .integrantes ul{
     padding-left: 25px;
 }
+
+.formulario{
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
+    padding: 50px;
+}
+
+.inputc{
+    display: block;
+}
