@@ -19,12 +19,24 @@ function solucionar(){
         console.log("Datos correctos: " + total + " " + chocolate + " " + otras);
 
         preguntaUno = ( factorial(chocolate) / ( factorial(chocolate-2) * factorial(2) ) ) / ( factorial(total) / ( factorial(total-2) * factorial(2) ) )
-        console.log(preguntaUno);
+        
+
+        if(chocolate==0){
+            preguntaUno=0;
+        }
     
+        console.log(preguntaUno);
+        
         preguntaDos = (chocolate / total) * (otras / (total-1));
         console.log(preguntaDos);
     
         preguntaTres = ( factorial(otras) / ( factorial(otras-2) * factorial(2) ) )  / ( factorial(total) / ( factorial(total-2) * factorial(2) ) );
+        
+
+        if(otras==0){
+            preguntaTres=0;
+        }
+
         console.log(preguntaTres);
     }
        

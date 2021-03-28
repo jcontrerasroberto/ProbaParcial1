@@ -52,10 +52,12 @@
 
     <div class="formulario">
       <h2>Ingresa los datos para solucionar este problema.</h2>
-        <br>
+      <br />
       <form class="form-inline row" id="formsol">
-        <div class="form-group col-5 inputc">
-          <label for="totalGalletas" class="sr-only">Total de galletas (n)</label>
+        <div class="form-group col-4 inputc">
+          <label for="totalGalletas" class="sr-only"
+            >Total de galletas (n)</label
+          >
           <input
             type="number"
             class="form-control"
@@ -63,24 +65,45 @@
             min="0"
           />
         </div>
-        <div class="form-group col-5 inputc">
-            <label for="totalGalletasChoc" class="sr-only">Galletas de chocolate (m)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="totalGalletasChoc"
-              min="0"
-            />
-          </div>
+        <div class="form-group col-4 inputc">
+          <label for="totalGalletasChoc" class="sr-only"
+            >Galletas de chocolate (m)</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="totalGalletasChoc"
+            min="0"
+          />
+        </div>
 
-        
+        <div class="form-group col-4 inputc">
+          <label for="totalGalletasChoc" class="sr-only"
+            >Numero de repeticiones (simulación)</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="totalVeces"
+            min="0"
+          />
+        </div>
+
         <button type="submit" class="btn btn-primary col-2">Solucionar</button>
+        <button
+          type="button"
+          onclick="simulacion()"
+          class="btn btn-primary col-2"
+        >
+          Simulación
+        </button>
       </form>
     </div>
-
-
   </body>
   <script type="text/javascript" src="../js/solucion.js"></script>
   <script type="text/javascript" src="../js/simulacion.js"></script>
-  <script type="text/javascript" src="../plugins/sweetalert2.all.min.js"></script>
+  <script
+    type="text/javascript"
+    src="../plugins/sweetalert2.all.min.js"
+  ></script>
 </html>
