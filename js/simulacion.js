@@ -5,7 +5,7 @@ var veces2choc = 0;
 var veceschocotro = 0;
 var veces2otro = 0;
 var veces = 0;
-
+//let bandera=0;
 google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -105,14 +105,17 @@ function simulacion(){
     console.log("Probabilidad 1: " + veces2choc/veces);
     console.log("Probabilidad 2: " + veceschocotro/veces);
     console.log("Probabilidad 3: " + veces2otro/veces);
+    
+    /*const graphScript = document.createElement("script");
+    graphScript.type = "text/javascript";
+    graphScript.className = "grapScript";
+    document.head.appendChild(graphScript);*/
 
     const graph = document.querySelector(".grapScript");
     Swal.fire({
         icon: 'success',
             title: 'Resultados',
-            width: 1000,
-            height: 600,
-            html:  `<div id="columnchart_material" style="width: 800px; height: 500px; margin: 50px;"></div>`
+            html:  `<div id="columnchart_material" style="width: 1000px; height: 500px;"></div>`
     });
     graph.innerHTML = '';
     drawChart();
