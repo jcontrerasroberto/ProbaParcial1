@@ -5,7 +5,7 @@ var veces2choc = 0;
 var veceschocotro = 0;
 var veces2otro = 0;
 var veces = 0;
-//let bandera=0;
+
 google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -92,7 +92,6 @@ function simulacion(){
         tempCook.splice(rand1, 1);
         var rand2 = Math.floor(Math.random() * (tempCook.length));
         sacados.push(tempCook[rand2]);
-        //console.log(rand1 + " , " + rand2 + " , " + tempCook.length);
         results.push(sacados);
     }
 
@@ -105,17 +104,12 @@ function simulacion(){
     console.log("Probabilidad 1: " + veces2choc/veces);
     console.log("Probabilidad 2: " + veceschocotro/veces);
     console.log("Probabilidad 3: " + veces2otro/veces);
-    
-    /*const graphScript = document.createElement("script");
-    graphScript.type = "text/javascript";
-    graphScript.className = "grapScript";
-    document.head.appendChild(graphScript);*/
 
     const graph = document.querySelector(".grapScript");
     Swal.fire({
         icon: 'success',
             title: 'Resultados',
-            html:  `<div id="columnchart_material" style="width: 1000px; height: 500px;"></div>`
+            html:  `<div id="columnchart_material" style="width: 800px; height: 500px; margin:50px;"></div>`
     });
     graph.innerHTML = '';
     drawChart();
@@ -124,7 +118,7 @@ function simulacion(){
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-    ['Pregunta', 'Probabilidad calculada', 'Probabilidad frecuentista (simulada)'],
+    ['Pregunta', 'Prob. calculada', 'Prob. frecuentista (sim) __'],
     ['a)', 100*pregUno, veces2choc*100/veces],
     ['b)', 100*pregDos, veceschocotro*100/veces],
     ['c)', 100*pregTres, veces2otro*100/veces],
@@ -133,7 +127,10 @@ function drawChart() {
     var options = {
     chart: {
         title: 'Gráfica de las probabilidades',
-    }
+    },
+    vAxis: {
+        title: 'Probabilidad en %'
+      }
     };
 
     var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
