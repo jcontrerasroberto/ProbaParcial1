@@ -112,7 +112,7 @@ function simulacion(){
             title: 'Resultados',
             width: 1000,
             height: 600,
-            html:  `<div id="columnchart_material" style="width: 800px; height: 500px; margin: 80px;"></div>`
+            html:  `<div id="columnchart_material" style="width: 800px; height: 500px; margin: 50px;"></div>`
     });
     graph.innerHTML = '';
     drawChart();
