@@ -59,7 +59,7 @@ formulario.addEventListener('submit', (event) => {
     if(bandera===0){
         Swal.fire({
             icon: 'success',
-            title: 'Resultados',
+            title: 'Resultados Te&oacute;ricos',
             html:  `<p>La probabilidad de que las dos sean de chocolate es de: ${preguntaUno}</p>
                     <p>La probabilidad de que la primera sea de chocolate y la segunda de otro sabor es de: ${preguntaDos}</p>
                     <p>La probabilidad de que ambas sean de otro sabor ${preguntaTres}</p>`
