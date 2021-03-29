@@ -44,3 +44,11 @@
 .inputc{
     display: block;
 }
+
+.swal2-modal{
+    width:1200px !important;
+}
+
+.buttonsito{
+    margin-top: 15px;
+}

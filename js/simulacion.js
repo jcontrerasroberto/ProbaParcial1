@@ -1,7 +1,21 @@
 let pregUno;
 let pregDos;
 let pregTres;
+var veces2choc = 0;
+var veceschocotro = 0;
+var veces2otro = 0;
+var veces = 0;
 //let bandera=0;
+google.charts.load('current', {'packages':['bar']});
+google.charts.setOnLoadCallback(drawChart);
+
+const factorial = (num) =>{
+    let fac=1;
+    for(i=1; i<=num; i++)
+        fac = fac * i;
+
+    return fac
+}
 
 function solucionar(){
     total = document.getElementById("totalGalletas").value;
@@ -42,14 +56,6 @@ function solucionar(){
 
 }
 
-const factorial = (num) =>{
-    let fac=1;
-    for(i=1; i<=num; i++)
-        fac = fac * i;
-
-    return fac
-}
-
 function simulacion(){
 
     solucionar();
@@ -57,6 +63,10 @@ function simulacion(){
     total = document.getElementById("totalGalletas").value;
     chocolate = document.getElementById("totalGalletasChoc").value;
     otras = total - chocolate;
+    veces2choc = 0;
+    veceschocotro = 0;
+    veces2otro = 0;
+    veces = 0;
     veces = document.getElementById("totalVeces").value;
     if(otras<0){
         Swal.fire({
@@ -71,9 +81,7 @@ function simulacion(){
         if(i<chocolate) cookies.push('C');
         else cookies.push('O');
     }
-    var veces2choc = 0;
-    var veceschocotro = 0;
-    var veces2otro = 0;
+    
     var results = [];
     console.log(cookies);
     for(i=0; i<veces; i++){
@@ -104,28 +112,32 @@ function simulacion(){
     document.head.appendChild(graphScript);*/
 
     const graph = document.querySelector(".grapScript");
-    graph.innerHTML = `
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-            ['Pregunta', 'Probabilidad calculada', 'Probabilidad frecuentista (simulada)'],
-            ['a)', ${100*pregUno}, ${veces2choc*100/veces}],
-            ['b)', ${100*pregDos}, ${veceschocotro*100/veces}],
-            ['c)', ${100*pregTres}, ${veces2otro*100/veces}],
-            ]);
-
-            var options = {
-            chart: {
-                title: 'Gráfica de las probabilidades',
-            }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-    `;
+    Swal.fire({
+        icon: 'success',
+            title: 'Resultados',
+            html:  `<div id="columnchart_material" style="width: 1000px; height: 500px;"></div>`
+    });
+    graph.innerHTML = '';
+    drawChart();
 
 }
+
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Pregunta', 'Probabilidad calculada', 'Probabilidad frecuentista (simulada)'],
+    ['a)', 100*pregUno, veces2choc*100/veces],
+    ['b)', 100*pregDos, veceschocotro*100/veces],
+    ['c)', 100*pregTres, veces2otro*100/veces],
+    ]);
+
+    var options = {
+    chart: {
+        title: 'Gráfica de las probabilidades',
+    }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+}
+
