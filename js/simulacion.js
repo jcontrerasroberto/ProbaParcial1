@@ -97,13 +97,10 @@ function simulacion(){
     console.log("Probabilidad 1: " + veces2choc/veces);
     console.log("Probabilidad 2: " + veceschocotro/veces);
     console.log("Probabilidad 3: " + veces2otro/veces);
-    
-    /*const graphScript = document.createElement("script");
-    graphScript.type = "text/javascript";
-    graphScript.className = "grapScript";
-    document.head.appendChild(graphScript);*/
+
 
     const graph = document.querySelector(".grapScript");
+    graph.innerHTML = "";
     graph.innerHTML = `
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart);
